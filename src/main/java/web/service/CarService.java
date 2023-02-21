@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface CarService {
     List<Car> findNCars(int n);
+    List<Car> findNCars();
+
 }
