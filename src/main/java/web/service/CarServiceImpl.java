@@ -2,8 +2,11 @@ package web.service;
 
 import org.springframework.stereotype.Service;
 import web.model.Car;
+
+import javax.swing.text.html.Option;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -27,10 +30,15 @@ public class CarServiceImpl implements CarService {
 
     @Override
     public List<Car> findNCars(int n) {
-        return cars.stream().limit(n).collect(Collectors.toList());
+        if (n > 5) {
+            return cars;
+        } else {
+            return cars.stream().limit(n).collect(Collectors.toList());
+        }
     }
+
     @Override
-    public List<Car> findNCars() {
+    public List<Car> findCars() {
         return cars;
     }
 }
