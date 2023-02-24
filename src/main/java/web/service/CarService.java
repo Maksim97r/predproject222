@@ -7,5 +7,4 @@ import java.util.Optional;
 
 public interface CarService {
     List<Car> findNCars(int n);
-    List<Car> findCars();
 }

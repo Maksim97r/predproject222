@@ -19,16 +19,10 @@ public class CarsController {
         this.carService = carService;
     }
 
-//    @GetMapping
-//    public String getCars(@RequestParam(value = "count") Optional<Integer> count, Model model) {
-//        if ()
-//            model.addAttribute("cars", carService.findNCars(count));
-//        return "cars";
-//    }
-
     @GetMapping
     public String getCars(@RequestParam(value = "count") Optional<Integer> count, Model model) {
-        model.addAttribute("cars", count.isEmpty() ? carService.findCars() : carService.findNCars(count.get()));
+
+        model.addAttribute("cars", carService.findNCars(count.orElse(0)));
 
         return "cars";
     }
